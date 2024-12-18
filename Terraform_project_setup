@@ -1,0 +1,47 @@
+#!/bin/bash
+
+# Define project structure
+PROJECT_NAME="terraform-project"
+
+declare -A STRUCTURE=(
+  ["${PROJECT_NAME}/README.md"]=""
+  ["${PROJECT_NAME}/global/provider.tf"]=""
+  ["${PROJECT_NAME}/global/backend.tf"]=""
+  ["${PROJECT_NAME}/global/terraform.tfvars"]=""
+  ["${PROJECT_NAME}/modules/networking/main.tf"]=""
+  ["${PROJECT_NAME}/modules/networking/variables.tf"]=""
+  ["${PROJECT_NAME}/modules/networking/outputs.tf"]=""
+  ["${PROJECT_NAME}/modules/networking/README.md"]=""
+  ["${PROJECT_NAME}/modules/compute/main.tf"]=""
+  ["${PROJECT_NAME}/modules/compute/variables.tf"]=""
+  ["${PROJECT_NAME}/modules/compute/outputs.tf"]=""
+  ["${PROJECT_NAME}/modules/compute/README.md"]=""
+  ["${PROJECT_NAME}/modules/storage/main.tf"]=""
+  ["${PROJECT_NAME}/modules/storage/variables.tf"]=""
+  ["${PROJECT_NAME}/modules/storage/outputs.tf"]=""
+  ["${PROJECT_NAME}/modules/storage/README.md"]=""
+  ["${PROJECT_NAME}/environments/dev/main.tf"]=""
+  ["${PROJECT_NAME}/environments/dev/variables.tf"]=""
+  ["${PROJECT_NAME}/environments/dev/outputs.tf"]=""
+  ["${PROJECT_NAME}/environments/dev/terraform.tfvars"]=""
+  ["${PROJECT_NAME}/environments/qa/main.tf"]=""
+  ["${PROJECT_NAME}/environments/qa/variables.tf"]=""
+  ["${PROJECT_NAME}/environments/qa/outputs.tf"]=""
+  ["${PROJECT_NAME}/environments/qa/terraform.tfvars"]=""
+  ["${PROJECT_NAME}/environments/stage/main.tf"]=""
+  ["${PROJECT_NAME}/environments/stage/variables.tf"]=""
+  ["${PROJECT_NAME}/environments/stage/outputs.tf"]=""
+  ["${PROJECT_NAME}/environments/stage/terraform.tfvars"]=""
+  ["${PROJECT_NAME}/environments/prod/main.tf"]=""
+  ["${PROJECT_NAME}/environments/prod/variables.tf"]=""
+  ["${PROJECT_NAME}/environments/prod/outputs.tf"]=""
+  ["${PROJECT_NAME}/environments/prod/terraform.tfvars"]=""
+)
+
+# Generate directories and files
+for filepath in "${!STRUCTURE[@]}"; do
+  mkdir -p "$(dirname "$filepath")"
+  touch "$filepath"
+done
+
+echo "Terraform project structure created under: ${PROJECT_NAME}/"
